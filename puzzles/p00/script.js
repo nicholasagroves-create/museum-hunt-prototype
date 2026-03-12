@@ -250,11 +250,11 @@ transmitButton.addEventListener("click", () => {
 });
 
 playPrelogAudioButton?.addEventListener("click", () => {
-  console.log("Pre-log audio not connected yet.");
+  console.log("p00-prelog audio not connected yet.");
 });
 
 playPostlogAudioButton?.addEventListener("click", () => {
-  console.log("Post-log audio not connected yet.");
+  console.log("p00-postlog audio not connected yet.");
 });
 
 audioToggle.addEventListener("click", toggleAmbient);

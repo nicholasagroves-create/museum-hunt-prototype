@@ -166,7 +166,8 @@ body {
 
 .terminal {
   width: 100%;
-  min-height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
   padding: 24px;
   background: #000;
   display: flex;
@@ -174,6 +175,9 @@ body {
   position: relative;
   z-index: 10;
   cursor: text;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 #mobile-input {
@@ -201,11 +205,13 @@ body {
   text-shadow: 0 0 6px rgba(51, 255, 102, 0.35);
   position: relative;
   z-index: 2;
+  padding-bottom: 8px;
 }
 
 .terminal__line {
   margin-bottom: 6px;
   min-height: 1.6em;
+  white-space: pre-wrap;
 }
 
 .terminal__prompt-line {
@@ -220,6 +226,7 @@ body {
   text-shadow: 0 0 6px rgba(51, 255, 102, 0.35);
   position: relative;
   z-index: 2;
+  padding-bottom: 42vh;
 }
 
 .prompt-label {
@@ -247,5 +254,41 @@ body {
 @keyframes blink {
   50% {
     opacity: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .terminal {
+    padding: 18px;
+  }
+
+  .terminal__inner,
+  .terminal__prompt-line {
+    font-size: 17px;
+  }
+
+  .terminal__prompt-line {
+    padding-bottom: 46vh;
+  }
+}
+
+@media (max-width: 520px) {
+  .terminal {
+    padding: 14px;
+  }
+
+  .terminal__inner,
+  .terminal__prompt-line {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .terminal__prompt-line {
+    padding-bottom: 50vh;
+  }
+
+  .cursor {
+    width: 10px;
+    height: 18px;
   }
 }
