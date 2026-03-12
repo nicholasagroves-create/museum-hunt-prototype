@@ -1,0 +1,421 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --gold: #d5b17a;
+  --gold-soft: #b98d53;
+  --gold-bright: #f1d7a5;
+  --ink: #1f1711;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: radial-gradient(circle at top, #20140d 0%, #0a0705 60%, #050404 100%);
+  color: var(--gold-bright);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+button {
+  appearance: none;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.p00-app {
+  min-height: 100vh;
+  padding: 8px 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.audio-toggle {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 30;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(213, 177, 122, 0.35);
+  background: rgba(20, 12, 8, 0.82);
+  color: var(--gold-bright);
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.screen {
+  width: 100%;
+  max-width: 760px;
+  display: none;
+  animation: screenFade 0.3s ease;
+}
+
+.screen--active {
+  display: block;
+}
+
+@keyframes screenFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Journal ---------- */
+
+.journal-card {
+  width: 100%;
+}
+
+.journal-surface {
+  background: url("graphics/journal-page.png") center center / cover no-repeat;
+  aspect-ratio: 2 / 3;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    inset 0 0 80px rgba(0, 0, 0, 0.08);
+}
+
+.journal-content {
+  position: absolute;
+  inset: 0;
+  padding: 21% 13.2% 10.2% 13.2%;
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
+}
+
+.journal-kicker {
+  font-size: clamp(8px, 0.95vw, 10px);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #5a4634;
+  margin-bottom: 2px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.journal-title {
+  margin: 0 0 10px;
+  font-size: clamp(22px, 3.7vw, 34px);
+  line-height: 1.04;
+  color: #2d2119;
+  font-family: "Bradley Hand", "Segoe Print", "Comic Sans MS", cursive;
+  font-weight: 600;
+}
+
+.journal-body {
+  flex: 1;
+  font-size: clamp(20px, 2.8vw, 26px);
+  line-height: 1.5;
+  color: #2e241c;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+  font-family: "Bradley Hand", "Segoe Print", "Comic Sans MS", cursive;
+  font-weight: 500;
+}
+
+.journal-body p {
+  margin: 0 0 10px;
+}
+
+.journal-emphasis {
+  font-weight: 700;
+}
+
+.journal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.primary-button {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(100, 74, 41, 0.55);
+  background: linear-gradient(180deg, #6f4f27, #3b2914);
+  color: #f3dfb6;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
+}
+
+.secondary-button {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid rgba(100, 74, 41, 0.28);
+  background: rgba(98, 73, 42, 0.06);
+  color: #3a2c20;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* ---------- Puzzle ---------- */
+
+.puzzle-shell {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 16px 10px 12px;
+  border: 1px solid rgba(213, 177, 122, 0.16);
+  background:
+    linear-gradient(rgba(15, 10, 7, 0.86), rgba(13, 9, 7, 0.94)),
+    radial-gradient(circle at top, rgba(177, 110, 43, 0.1), transparent 35%);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.42);
+}
+
+.puzzle-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.puzzle-kicker {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 6px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.puzzle-title {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.05;
+  color: var(--gold-bright);
+}
+
+.puzzle-instruction {
+  margin: 0 auto;
+  max-width: 580px;
+  font-size: clamp(16px, 2.3vw, 21px);
+  line-height: 1.42;
+  color: #ead9b6;
+}
+
+.cylinder-stage {
+  margin: 14px auto 6px;
+}
+
+.cylinder-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.cylinder-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.wheel-layer {
+  position: absolute;
+  left: 25%;
+  top: 45.7%;
+  width: 48.9%;
+  height: 8.2%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.55%;
+  pointer-events: none;
+}
+
+.wheel {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  pointer-events: auto;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.wheel-track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  will-change: transform;
+}
+
+.wheel-letter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(24px, 4.4vw, 40px);
+  font-weight: 700;
+  color: #11100e;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 1px rgba(0, 0, 0, 0.14);
+  user-select: none;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.01em;
+  transform: translateY(-8%);
+}
+
+.solve-message {
+  min-height: 22px;
+  text-align: center;
+  color: #d5c09a;
+  font-size: 12px;
+  line-height: 1.35;
+  margin: 6px 0 8px;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.04em;
+}
+
+.solve-message--success {
+  color: #f1deb3;
+  text-shadow: 0 0 10px rgba(213, 177, 122, 0.3);
+}
+
+.cylinder-wrapper--solved {
+  animation: solvedGlow 0.7s ease 2;
+}
+
+@keyframes solvedGlow {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.18) drop-shadow(0 0 20px rgba(213, 177, 122, 0.32));
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+@media (max-width: 700px) {
+  .journal-content {
+    padding: 16.8% 13.4% 10.5% 13.4%;
+  }
+
+  .journal-title {
+    font-size: clamp(18px, 4.4vw, 26px);
+    margin-bottom: 7px;
+  }
+
+  .journal-body {
+    font-size: clamp(10.5px, 1.95vw, 13px);
+    line-height: 1.34;
+  }
+
+  .journal-body p {
+    margin-bottom: 9px;
+  }
+
+  .primary-button {
+    padding: 11px 12px;
+    font-size: 11px;
+  }
+
+  .secondary-button {
+    padding: 9px 12px;
+    font-size: 10px;
+  }
+
+  .wheel-layer {
+    left: 24.9%;
+    top: 52.0%;
+    width: 48.8%;
+    height: 8.15%;
+    gap: 1.55%;
+  }
+
+  .wheel-letter {
+    transform: translateY(-10%);
+  }
+}
+
+@media (max-width: 520px) {
+  .p00-app {
+    padding: 6px 6px 10px;
+  }
+
+  .journal-content {
+    padding: 17.2% 13.7% 10.8% 13.7%;
+  }
+
+  .journal-kicker {
+    font-size: 7.5px;
+  }
+
+  .journal-title {
+    font-size: clamp(17px, 6vw, 24px);
+    margin-bottom: 6px;
+  }
+
+  .journal-body {
+    font-size: clamp(10px, 3vw, 12px);
+    line-height: 1.3;
+  }
+
+  .journal-body p {
+    margin-bottom: 8px;
+  }
+
+  .journal-actions {
+    gap: 5px;
+    margin-top: 2px;
+  }
+
+  .puzzle-title {
+    font-size: 28px;
+  }
+
+  .puzzle-instruction {
+    font-size: 15px;
+  }
+
+  .solve-message {
+    font-size: 11px;
+  }
+
+  .wheel-layer {
+    left: 25%;
+    top: 51.9%;
+    width: 48.7%;
+    height: 8.1%;
+    gap: 1.5%;
+  }
+
+  .wheel-letter {
+    font-size: clamp(22px, 4.8vw, 32px);
+    transform: translateY(-12%);
+  }
+}

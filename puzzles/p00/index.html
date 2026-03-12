@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Training Mechanism 00</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="p00-app">
+    <button id="audio-toggle" class="audio-toggle" type="button" aria-label="Mute ambient audio">
+      🔊
+    </button>
+
+    <!-- SCREEN 1: PRE-INCIDENT LOG -->
+    <section id="screen-prelog" class="screen screen--active">
+      <div class="journal-card">
+        <div class="journal-surface">
+          <div class="journal-content">
+            <div class="journal-kicker">Recovered Journal Fragment</div>
+            <h1 class="journal-title">Pre-Incident Log</h1>
+
+            <div class="journal-body">
+              <p>
+                Orientation procedures were established before entering the restricted archive.
+                Mercer insisted that every researcher carry a field credential bearing the proper classification.
+              </p>
+
+              <p>
+                He claimed the mechanisms would respond only to those who could identify their assigned artifact status without hesitation.
+              </p>
+
+              <p>
+                The first lock was described as simple by design. A test. A way of proving that the researcher understood where to look before attempting anything deeper in the collection.
+              </p>
+            </div>
+
+            <div class="journal-actions">
+              <button id="play-prelog-audio" class="secondary-button" type="button">
+                Play Recording
+              </button>
+
+              <button id="to-puzzle-button" class="primary-button" type="button">
+                Continue to Mechanism
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: PUZZLE -->
+    <section id="screen-puzzle" class="screen">
+      <div class="puzzle-shell">
+        <div class="puzzle-header">
+          <div class="puzzle-kicker">Training Mechanism 00</div>
+          <h2 class="puzzle-title">Archive Credential Cylinder</h2>
+          <p class="puzzle-instruction">
+            Set the archive cylinder to the classification printed on your badge.
+          </p>
+        </div>
+
+        <div class="cylinder-stage">
+          <div class="cylinder-wrapper">
+            <img
+              src="graphics/cypher-cylinder.png"
+              alt="Archive cipher cylinder"
+              class="cylinder-image"
+            />
+
+            <div id="wheel-layer" class="wheel-layer" aria-label="Cipher wheels"></div>
+          </div>
+        </div>
+
+        <div id="solve-message" class="solve-message" aria-live="polite">
+          Tap each wheel to rotate it.
+        </div>
+
+        <button id="to-postlog-button" class="primary-button hidden" type="button">
+          View Restored Log
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: POST-INCIDENT LOG -->
+    <section id="screen-postlog" class="screen">
+      <div class="journal-card">
+        <div class="journal-surface">
+          <div class="journal-content">
+            <div class="journal-kicker">Restored Journal Fragment</div>
+            <h2 class="journal-title">Post-Incident Log</h2>
+
+            <div class="journal-body">
+              <p>
+                Credential accepted. The cylinder responded immediately once the correct classification was aligned.
+              </p>
+
+              <p>
+                Mercer’s note was underlined twice:
+                <span class="journal-emphasis">The archive does not reward guessing. It rewards observation.</span>
+              </p>
+
+              <p>
+                With the first mechanism cleared, the system restored a corresponding expedition record and confirmed that additional locks would follow the same pattern:
+                observe, interpret, align, transmit.
+              </p>
+            </div>
+
+            <div class="journal-actions">
+              <button id="play-postlog-audio" class="secondary-button" type="button">
+                Play Recording
+              </button>
+
+              <button id="transmit-button" class="primary-button" type="button">
+                Transmit to Archive
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <audio id="ambient-audio" src="audio/ambient-thinking.mp3" preload="auto" loop></audio>
+  <audio id="click-audio" src="audio/cylinder-click.wav" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

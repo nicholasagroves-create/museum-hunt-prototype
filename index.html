@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Access Terminal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <input
+    type="text"
+    id="mobile-input"
+    autocapitalize="characters"
+    autocomplete="off"
+    autocorrect="off"
+    spellcheck="false"
+    inputmode="text"
+  />
+
+  <div class="start-screen" id="start-screen">
+    <div class="start-screen__content">
+      <div class="seal-wrap">
+        <img
+          src="images/ascii-seal.png"
+          alt="Archive Seal"
+          class="seal-image"
+        />
+      </div>
+      <div class="start-message">CLICK ANYWHERE TO BEGIN</div>
+    </div>
+  </div>
+
+  <div class="crt-burst hidden" id="crt-burst"></div>
+
+  <main class="terminal hidden" id="terminal">
+    <div class="terminal__inner" id="terminal-output"></div>
+
+    <div class="terminal__prompt-line prompt-hidden" id="prompt-line">
+      <span class="prompt-label">&gt;</span>
+      <span id="prompt-text">ENTER RESEARCHER ID</span>
+      <span id="user-input"></span>
+      <span class="cursor"></span>
+    </div>
+  </main>
+
+  <audio id="hum-audio" src="audio/computer-hum.wav" preload="auto"></audio>
+  <audio id="typing-audio" src="audio/keyboard-clicks.wav" preload="auto" loop></audio>
+
+  <script src="app.js"></script>
+</body>
+</html>
