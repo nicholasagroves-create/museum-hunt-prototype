@@ -1511,6 +1511,18 @@ function initReturnToArchiveFlow() {
 document.addEventListener("click", startExperience, { once: true });
 document.addEventListener("touchstart", startExperience, { once: true });
 
+terminal.addEventListener("click", () => {
+  if (!terminal.classList.contains("hidden")) {
+    focusMobileInput();
+  }
+});
+
+terminal.addEventListener("touchstart", () => {
+  if (!terminal.classList.contains("hidden")) {
+    focusMobileInput();
+  }
+}, { passive: true });
+
 promptLine.addEventListener("click", () => {
   if (!promptLine.classList.contains("prompt-hidden")) {
     focusMobileInput();
