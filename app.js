@@ -107,6 +107,14 @@ function formatResearcherId(value) {
   return `${cleaned.slice(0, 4)}-${cleaned.slice(4)}`;
 }
 
+function focusMobileInput() {
+  mobileInput.focus();
+
+  setTimeout(() => {
+    mobileInput.focus();
+  }, 50);
+}
+
 function freezeCurrentPromptLine(mask = false) {
   const lockedLine = document.createElement("div");
   lockedLine.className = "terminal__line";
@@ -136,14 +144,6 @@ async function addLoadingSystemLine(text) {
   await animateWorkingDots(line, text);
 
   scrollToBottom();
-}
-
-function focusMobileInput() {
-  focusMobileInput();
-
-  setTimeout(() => {
-    focusMobileInput();
-  }, 50);
 }
 
 function resetPrompt(newPrompt, inputMode = "text") {
@@ -483,195 +483,196 @@ function loadFile00Viewer(startTab = "pre") {
         </button>
       </div>
 
-<div id="file00-panel-pre" style="display: ${startTab === "pre" ? "block" : "none"};">
-  <div style="
-    border: 1px solid rgba(191, 151, 87, 0.24);
-    background: rgba(14, 11, 8, 0.52);
-    padding: 14px;
-  ">
-    <div style="
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #b79055;
-      margin-bottom: 10px;
-      font-family: 'Courier New', Courier, monospace;
-    ">
-      Pre-Incident Log
-    </div>
-
-    <div style="
-      background: url('puzzles/p00/graphics/journal-page.png') center center / cover no-repeat;
-      aspect-ratio: 2 / 3;
-      width: 100%;
-      max-width: 640px;
-      margin: 0 auto 12px;
-      position: relative;
-      border: 1px solid rgba(191, 151, 87, 0.18);
-      overflow: hidden;
-    ">
-      <div style="
-        position: absolute;
-        inset: 0;
-        padding: 21% 13.2% 10.2% 13.2%;
-        color: #1f1711;
-      ">
+      <div id="file00-panel-pre" style="display: ${startTab === "pre" ? "block" : "none"};">
         <div style="
-          font-size: 10px;
-          text-transform: uppercase;
-          letter-spacing: 0.14em;
-          color: #5a4634;
-          margin-bottom: 4px;
-          font-family: Georgia, 'Times New Roman', serif;
+          border: 1px solid rgba(191, 151, 87, 0.24);
+          background: rgba(14, 11, 8, 0.52);
+          padding: 14px;
         ">
-          Recovered Journal Fragment
+          <div style="
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #b79055;
+            margin-bottom: 10px;
+            font-family: 'Courier New', Courier, monospace;
+          ">
+            Pre-Incident Log
+          </div>
+
+          <div style="
+            background: url('puzzles/p00/graphics/journal-page.png') center center / cover no-repeat;
+            aspect-ratio: 2 / 3;
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto 12px;
+            position: relative;
+            border: 1px solid rgba(191, 151, 87, 0.18);
+            overflow: hidden;
+          ">
+            <div style="
+              position: absolute;
+              inset: 0;
+              padding: 21% 13.2% 10.2% 13.2%;
+              color: #1f1711;
+            ">
+              <div style="
+                font-size: 10px;
+                text-transform: uppercase;
+                letter-spacing: 0.14em;
+                color: #5a4634;
+                margin-bottom: 4px;
+                font-family: Georgia, 'Times New Roman', serif;
+              ">
+                Recovered Journal Fragment
+              </div>
+
+              <div style="
+                margin: 0 0 10px;
+                font-size: 32px;
+                line-height: 1.04;
+                color: #2d2119;
+                font-family: 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', cursive;
+                font-weight: 600;
+              ">
+                Pre-Incident Log
+              </div>
+
+              <div style="
+                font-size: 20px;
+                line-height: 1.5;
+                color: #2e241c;
+                text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+                font-family: 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', cursive;
+                font-weight: 500;
+              ">
+                <p style="margin: 0 0 14px;">
+                  Orientation procedures were established before entering the restricted archive. Mercer insisted that every researcher carry a field credential bearing the proper classification.
+                </p>
+
+                <p style="margin: 0 0 14px;">
+                  He claimed the mechanisms would respond only to those who could identify their assigned artifact status without hesitation.
+                </p>
+
+                <p style="margin: 0;">
+                  The first lock was described as simple by design. A test. A way of proving that the researcher understood where to look before attempting anything deeper in the collection.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <button id="play-file00-observation" type="button" style="
+            width: 100%;
+            padding: 12px 14px;
+            background: linear-gradient(180deg, #5d4220, #2d2010);
+            color: #f2deb1;
+            border: 1px solid rgba(191, 151, 87, 0.4);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+          ">
+            Play Log Audio
+          </button>
         </div>
+      </div>
 
+      <div id="file00-panel-post" style="display: ${startTab === "post" ? "block" : "none"};">
         <div style="
-          margin: 0 0 10px;
-          font-size: 32px;
-          line-height: 1.04;
-          color: #2d2119;
-          font-family: 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', cursive;
-          font-weight: 600;
+          border: 1px solid rgba(191, 151, 87, 0.24);
+          background: rgba(14, 11, 8, 0.52);
+          padding: 14px;
         ">
-          Pre-Incident Log
-        </div>
+          <div style="
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #b79055;
+            margin-bottom: 10px;
+            font-family: 'Courier New', Courier, monospace;
+          ">
+            Post-Incident Log
+          </div>
 
-        <div style="
-          font-size: 20px;
-          line-height: 1.5;
-          color: #2e241c;
-          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
-          font-family: 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', cursive;
-          font-weight: 500;
-        ">
-          <p style="margin: 0 0 14px;">
-            Orientation procedures were established before entering the restricted archive. Mercer insisted that every researcher carry a field credential bearing the proper classification.
-          </p>
+          <div style="
+            background: url('puzzles/p00/graphics/journal-page.png') center center / cover no-repeat;
+            aspect-ratio: 2 / 3;
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto 12px;
+            position: relative;
+            border: 1px solid rgba(191, 151, 87, 0.18);
+            overflow: hidden;
+          ">
+            <div style="
+              position: absolute;
+              inset: 0;
+              padding: 21% 13.2% 10.2% 13.2%;
+              color: #1f1711;
+            ">
+              <div style="
+                font-size: 10px;
+                text-transform: uppercase;
+                letter-spacing: 0.14em;
+                color: #5a4634;
+                margin-bottom: 4px;
+                font-family: Georgia, 'Times New Roman', serif;
+              ">
+                Restored Journal Fragment
+              </div>
 
-          <p style="margin: 0 0 14px;">
-            He claimed the mechanisms would respond only to those who could identify their assigned artifact status without hesitation.
-          </p>
+              <div style="
+                margin: 0 0 10px;
+                font-size: 32px;
+                line-height: 1.04;
+                color: #2d2119;
+                font-family: 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', cursive;
+                font-weight: 600;
+              ">
+                Post-Incident Log
+              </div>
 
-          <p style="margin: 0;">
-            The first lock was described as simple by design. A test. A way of proving that the researcher understood where to look before attempting anything deeper in the collection.
-          </p>
+              <div style="
+                font-size: 20px;
+                line-height: 1.5;
+                color: #2e241c;
+                text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+                font-family: 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', cursive;
+                font-weight: 500;
+              ">
+                <p style="margin: 0 0 14px;">
+                  Credential accepted. The cylinder responded immediately once the correct classification was aligned.
+                </p>
+
+                <p style="margin: 0 0 14px;">
+                  Mercer’s note was underlined twice: <strong>The archive does not reward guessing. It rewards observation.</strong>
+                </p>
+
+                <p style="margin: 0;">
+                  With the first mechanism cleared, the system restored a corresponding expedition record and confirmed that additional locks would follow the same pattern: observe, interpret, align, transmit.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <button id="play-file00-response" type="button" style="
+            width: 100%;
+            padding: 12px 14px;
+            background: linear-gradient(180deg, #5d4220, #2d2010);
+            color: #f2deb1;
+            border: 1px solid rgba(191, 151, 87, 0.4);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+          ">
+            Play Log Audio
+          </button>
         </div>
       </div>
     </div>
-
-    <button id="play-file00-observation" type="button" style="
-      width: 100%;
-      padding: 12px 14px;
-      background: linear-gradient(180deg, #5d4220, #2d2010);
-      color: #f2deb1;
-      border: 1px solid rgba(191, 151, 87, 0.4);
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-    ">
-      Play Log Audio
-    </button>
-  </div>
-</div>
-
-<div id="file00-panel-post" style="display: ${startTab === "post" ? "block" : "none"};">
-  <div style="
-    border: 1px solid rgba(191, 151, 87, 0.24);
-    background: rgba(14, 11, 8, 0.52);
-    padding: 14px;
-  ">
-    <div style="
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #b79055;
-      margin-bottom: 10px;
-      font-family: 'Courier New', Courier, monospace;
-    ">
-      Post-Incident Log
-    </div>
-
-    <div style="
-      background: url('puzzles/p00/graphics/journal-page.png') center center / cover no-repeat;
-      aspect-ratio: 2 / 3;
-      width: 100%;
-      max-width: 640px;
-      margin: 0 auto 12px;
-      position: relative;
-      border: 1px solid rgba(191, 151, 87, 0.18);
-      overflow: hidden;
-    ">
-      <div style="
-        position: absolute;
-        inset: 0;
-        padding: 21% 13.2% 10.2% 13.2%;
-        color: #1f1711;
-      ">
-        <div style="
-          font-size: 10px;
-          text-transform: uppercase;
-          letter-spacing: 0.14em;
-          color: #5a4634;
-          margin-bottom: 4px;
-          font-family: Georgia, 'Times New Roman', serif;
-        ">
-          Restored Journal Fragment
-        </div>
-
-        <div style="
-          margin: 0 0 10px;
-          font-size: 32px;
-          line-height: 1.04;
-          color: #2d2119;
-          font-family: 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', cursive;
-          font-weight: 600;
-        ">
-          Post-Incident Log
-        </div>
-
-        <div style="
-          font-size: 20px;
-          line-height: 1.5;
-          color: #2e241c;
-          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
-          font-family: 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', cursive;
-          font-weight: 500;
-        ">
-          <p style="margin: 0 0 14px;">
-            Credential accepted. The cylinder responded immediately once the correct classification was aligned.
-          </p>
-
-          <p style="margin: 0 0 14px;">
-            Mercer’s note was underlined twice: <strong>The archive does not reward guessing. It rewards observation.</strong>
-          </p>
-
-          <p style="margin: 0;">
-            With the first mechanism cleared, the system restored a corresponding expedition record and confirmed that additional locks would follow the same pattern: observe, interpret, align, transmit.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <button id="play-file00-response" type="button" style="
-      width: 100%;
-      padding: 12px 14px;
-      background: linear-gradient(180deg, #5d4220, #2d2010);
-      color: #f2deb1;
-      border: 1px solid rgba(191, 151, 87, 0.4);
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-    ">
-      Play Log Audio
-    </button>
-  </div>
-</div>
   `;
 
   document.body.appendChild(overlay);
@@ -732,6 +733,7 @@ function loadFile00Viewer(startTab = "pre") {
     }
   });
 }
+
 async function revealRecoveredFile00() {
   const banner = document.getElementById("archive-update-banner");
   const file00Row = document.getElementById("file00-row");
@@ -1457,6 +1459,7 @@ async function runBootSequence() {
   await wait(FINAL_DELAY);
   promptLine.classList.remove("prompt-hidden");
   terminalReadyForInput = true;
+  focusMobileInput();
 }
 
 async function startExperience() {
@@ -1519,18 +1522,6 @@ terminal.addEventListener("click", () => {
 
 terminal.addEventListener("touchstart", () => {
   if (!terminal.classList.contains("hidden")) {
-    focusMobileInput();
-  }
-}, { passive: true });
-
-promptLine.addEventListener("click", () => {
-  if (!promptLine.classList.contains("prompt-hidden")) {
-    focusMobileInput();
-  }
-});
-
-promptLine.addEventListener("touchstart", () => {
-  if (!promptLine.classList.contains("prompt-hidden")) {
     focusMobileInput();
   }
 }, { passive: true });
