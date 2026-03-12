@@ -138,6 +138,14 @@ async function addLoadingSystemLine(text) {
   scrollToBottom();
 }
 
+function focusMobileInput() {
+  focusMobileInput();
+
+  setTimeout(() => {
+    focusMobileInput();
+  }, 50);
+}
+
 function resetPrompt(newPrompt, inputMode = "text") {
   currentInput = "";
   mobileInput.value = "";
@@ -145,7 +153,7 @@ function resetPrompt(newPrompt, inputMode = "text") {
   promptText.textContent = newPrompt;
   mobileInput.setAttribute("inputmode", inputMode);
   promptLine.classList.remove("prompt-hidden");
-  mobileInput.focus();
+  focusMobileInput();
 }
 
 function setActiveResearcherId(id) {
@@ -1471,7 +1479,7 @@ async function startExperience() {
   promptText.textContent = "ENTER RESEARCHER ID";
   mobileInput.setAttribute("inputmode", "text");
 
-  mobileInput.focus();
+  focusMobileInput();
 
   crtBurst.classList.remove("hidden");
   await wait(CRT_BURST_DURATION);
@@ -1502,6 +1510,18 @@ function initReturnToArchiveFlow() {
 
 document.addEventListener("click", startExperience, { once: true });
 document.addEventListener("touchstart", startExperience, { once: true });
+
+promptLine.addEventListener("click", () => {
+  if (!promptLine.classList.contains("prompt-hidden")) {
+    focusMobileInput();
+  }
+});
+
+promptLine.addEventListener("touchstart", () => {
+  if (!promptLine.classList.contains("prompt-hidden")) {
+    focusMobileInput();
+  }
+}, { passive: true });
 
 mobileInput.addEventListener("input", async () => {
   if (!terminalReadyForInput) return;
